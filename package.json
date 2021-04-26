@@ -1,0 +1,29 @@
+{
+  "name": "@sumwatshade/enquirer-engine",
+  "version": "0.0.1",
+  "description": "Use JSON schema to specify enquirer experiences",
+  "main": "lib/index.js",
+  "repository": "git@github.com:sumwatshade/enquirer-engine.git",
+  "author": "lshadler <lshadler13@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src",
+    "release": "auto shipit",
+    "build": "tsc -b"
+  },
+  "devDependencies": {
+    "@auto-it/all-contributors": "10.25.1",
+    "@auto-it/conventional-commits": "10.25.1",
+    "@auto-it/first-time-contributor": "10.25.1",
+    "@auto-it/git-tag": "10.25.1",
+    "@auto-it/released": "10.25.1",
+    "@commitlint/cli": "12.1.1",
+    "@commitlint/config-conventional": "12.1.1",
+    "@typescript-eslint/eslint-plugin": "4.22.0",
+    "@typescript-eslint/parser": "4.22.0",
+    "all-contributors-cli": "6.20.0",
+    "auto": "10.25.1",
+    "eslint": "7.25.0",
+    "typescript": "4.2.4"
+  }
+}
