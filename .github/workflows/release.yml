@@ -37,8 +37,16 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
-    - run: yarn install --frozen-lockfile
-    - run: yarn lint
-    - run: yarn test
-    - run: yarn build
-    - run: yarn release
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+    - name: Lint files
+      run: yarn lint
+    - name: Test
+      run: yarn test
+    - name: Generate assets
+      run: yarn build
+    - name: Release via Auto
+      env: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: yarn release
