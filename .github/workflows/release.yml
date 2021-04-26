@@ -33,8 +33,9 @@ jobs:
       with:
         # npm cache files are stored in `~/.npm` on Linux/macOS
         path: '**/node_modules'
-        key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+        key: ${{ runner.OS }}-node-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
+          ${{ runner.OS }}-node-${{ matrix.node-version }}
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
     - name: Install Dependencies
