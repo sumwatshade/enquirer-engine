@@ -9,6 +9,19 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "sumwatshade",
+      "name": "Lucas Shadler",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23409677?v=4",
+      "profile": "https://lshadler.github.io/",
+      "contributions": [
+        "doc",
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
