@@ -1,6 +1,6 @@
 {
   "name": "@sumwatshade/enquirer-engine",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Use JSON schema to specify enquirer experiences",
   "main": "lib/index.js",
   "repository": "git@github.com:sumwatshade/enquirer-engine.git",
