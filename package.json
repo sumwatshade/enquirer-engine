@@ -12,6 +12,10 @@
     "build": "tsc -b",
     "test": "jest"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "devDependencies": {
     "@auto-it/all-contributors": "10.25.1",
     "@auto-it/conventional-commits": "10.25.1",
