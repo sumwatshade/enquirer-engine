@@ -5,16 +5,8 @@ export default function rc(): AutoRc {
     plugins: [
       "all-contributors",
       "npm",
-      "conventional-commits",
       "released",
       "first-time-contributor",
-      [
-        "gh-pages",
-        {
-          "buildCommand": "yarn build:docs",
-          "dir": "./docs"
-        }
-      ]
     ],
     prereleaseBranches: ["next", "alpha", "beta"],
     name: "sumwatshade",
