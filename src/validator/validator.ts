@@ -1,6 +1,11 @@
 import Ajv, { ErrorObject, JSONSchemaType, ValidateFunction } from "ajv";
 const ajv = new Ajv({ allErrors: true });
 
+type PlaceholderReturnType = {
+  valid: boolean;
+  errors?: ErrorObject<string, Record<string, any>, unknown>[];
+};
+
 interface PlaceholderData {
   foo: number;
   bar?: string;
@@ -20,10 +25,7 @@ ajv.addSchema(placeholderSchema, "placholderSchema");
 function validate(
   validator: ValidateFunction<PlaceholderData>,
   data: any
-): {
-  valid: boolean;
-  errors?: ErrorObject<string, Record<string, any>, unknown>[];
-} {
+): PlaceholderReturnType {
   const valid = validator(data);
   const errors = validator?.errors ?? [];
 
@@ -39,14 +41,14 @@ function validate(
   }
 }
 
-export const validatePrompt = function (data: any) {
+export function validatePrompt(data: any): PlaceholderReturnType {
   return validate(validatorPlaceholder, data);
-};
+}
 
-export const validateSurvey = function (data: any) {
+export function validateSurvey(data: any): PlaceholderReturnType {
   return validate(validatorPlaceholder, data);
-};
+}
 
-export const validateInput = function (data: any) {
+export function validateInput(data: any): PlaceholderReturnType {
   return validate(validatorPlaceholder, data);
-};
+}
