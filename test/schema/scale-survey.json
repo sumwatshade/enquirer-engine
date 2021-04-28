@@ -1,0 +1,38 @@
+{
+  //overall ID of the json
+  "id": "enquirer-survey",
+  "type": "object",
+  "properties": {
+    "surveyId": "survey-lunch-1",
+    "surveyType": "scale",
+    //surveyType to correspond with https://github.com/enquirer/enquirer#built-in-prompts
+    "surveySettings": {
+      //common survey setting inputs found in the docs, hopefully this can be passed into the function directly
+      //https://github.com/enquirer/enquirer#scale-prompt
+      "name": "whats-for-lunch-survey",
+      "message": "Rate what you would like for lunch from 1-5",
+      "scale": [
+        { "name": "1", "message": "Super gross!" },
+        { "name": "2", "message": "Kinda gross." },
+        { "name": "3", "message": "This would be alright." },
+        { "name": "4", "message": "Oh I want this." },
+        { "name": "5", "message": "I NEEEED IT!" }
+      ],
+      "choices": [
+        {
+          "name": "inout",
+          "message": "In N Out"
+        },
+        {
+          "name": "tacobell",
+          "message": "Taco Bell"
+        },
+        {
+          "name": "pizza",
+          "message": "Howie's Artisan Pizza"
+        }
+      ]
+      // other object types can be put here on a per-survey-type basis, like hint, numbered, fields, template, etc
+    }
+  }
+}
