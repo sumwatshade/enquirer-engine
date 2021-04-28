@@ -3,10 +3,11 @@
   "id": "enquirer-survey",
   "type": "object",
   "properties": {
-    "surveyId": "survey-lunch-1",
-    "surveyType": "scale",
+    "id": "survey-lunch-1",
+    "createdAt": "2021-04-28",
     //surveyType to correspond with https://github.com/enquirer/enquirer#built-in-prompts
-    "surveySettings": {
+    "prompts": [{
+      "type": "scale",
       //common survey setting inputs found in the docs, hopefully this can be passed into the function directly
       //https://github.com/enquirer/enquirer#scale-prompt
       "name": "whats-for-lunch-survey",
@@ -33,6 +34,6 @@
         }
       ]
       // other object types can be put here on a per-survey-type basis, like hint, numbered, fields, template, etc
-    }
+    }]
   }
 }
