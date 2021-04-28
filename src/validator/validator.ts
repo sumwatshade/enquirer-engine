@@ -1,4 +1,4 @@
-import Ajv, { JSONSchemaType } from "ajv";
+import Ajv, { JSONSchemaType, ValidateFunction } from "ajv";
 const ajv = new Ajv({ allErrors: true });
 
 interface PlaceholderData {
@@ -12,15 +12,32 @@ const placeholderSchema: JSONSchemaType<PlaceholderData> = {
   additionalProperties: false,
 };
 
-export const validate = (jsonBlob: any) => {
-  // TODO: add schema
-  ajv.addSchema(placeholderSchema, "placholderSchema");
-  const validateJson = ajv.compile(placeholderSchema);
-  const isValid = validateJson(jsonBlob);
+const validatorPlaceholder = ajv.compile(placeholderSchema);
+
+// TODO: add schemas for prompt, survey, and input
+ajv.addSchema(placeholderSchema, "placholderSchema");
+
+export const validate = (
+  validator: ValidateFunction<PlaceholderData>,
+  data: any
+) => {
+  const isValid = validator(data);
 
   if (isValid) {
     return isValid;
   } else {
-    return validateJson.errors;
+    return validator.errors;
   }
+};
+
+export const validatePrompt = function (data: any) {
+  return validate(validatorPlaceholder, data);
+};
+
+export const validateSurvey = function (data: any) {
+  return validate(validatorPlaceholder, data);
+};
+
+export const validateInput = function (data: any) {
+  return validate(validatorPlaceholder, data);
 };
