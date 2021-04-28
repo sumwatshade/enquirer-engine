@@ -17,10 +17,7 @@ const validatorPlaceholder = ajv.compile(placeholderSchema);
 // TODO: add schemas for prompt, survey, and input
 ajv.addSchema(placeholderSchema, "placholderSchema");
 
-export const validate = (
-  validator: ValidateFunction<PlaceholderData>,
-  data: any
-) => {
+const validate = (validator: ValidateFunction<PlaceholderData>, data: any) => {
   const isValid = validator(data);
 
   if (isValid) {
