@@ -17,10 +17,10 @@ const placeholderSchema: JSONSchemaType<PlaceholderData> = {
   additionalProperties: false,
 };
 
-const validatorPlaceholder = ajv.compile(placeholderSchema);
-
 // TODO: add schemas for prompt, survey, and input
 ajv.addSchema(placeholderSchema, "placholderSchema");
+
+const validatorPlaceholder = ajv.compile(placeholderSchema);
 
 function validate(
   validator: ValidateFunction<PlaceholderData>,
