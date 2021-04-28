@@ -1,4 +1,5 @@
-const { prompt } = require('enquirer')
+import { prompt } from 'enquirer'
+import convertToOutput from './OutputAdapter'
 
 interface settingsJsonTypes {
   id: string,
@@ -14,7 +15,11 @@ class Engine {
   run(settingsJson: settingsJsonTypes) {
     const { surveyId: string, surveyType: string, surveySettings: object } = settingsJson.properties
 
-    const response = await prompt(surveySettings)
-    return response
+    const engineOutput = await prompt(surveySettings)
+    const format = this.options?.outputFormat
+    return convertToOutput({
+      engineOutput,
+      format
+    })
   }
 }
