@@ -2,8 +2,8 @@
 
 exports[`index exports all exports should match snapshot 1`] = `
 Object {
-  "default": "hello world",
+  "validateSurvey": [Function],
 }
 `;
 
-exports[`index exports default export should match snapshot 1`] = `"hello world"`;
+exports[`index exports default export should match snapshot 1`] = `undefined`;
