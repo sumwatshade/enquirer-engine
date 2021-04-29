@@ -1,31 +1,21 @@
-import Ajv, { ErrorObject, JSONSchemaType, ValidateFunction } from "ajv";
+import Ajv, { JSONSchemaType, ValidateFunction } from "ajv";
+import { ISurveySchema, IValidatorOutput } from "src/types";
 const ajv = new Ajv({ allErrors: true });
 
-type PlaceholderReturnType = {
-  valid: boolean;
-  errors?: ErrorObject<string, Record<string, any>, unknown>[];
-};
-
-interface PlaceholderData {
-  foo: number;
-  bar?: string;
-}
-
-const placeholderSchema: JSONSchemaType<PlaceholderData> = {
+const surveySchema: JSONSchemaType<ISurveySchema> = {
   type: "object",
-  required: ["foo"],
+  required: ["id", "createdAt", "prompts"],
   additionalProperties: false,
 };
 
-// TODO: add schemas for prompt, survey, and input
-ajv.addSchema(placeholderSchema, "placholderSchema");
+ajv.addSchema(surveySchema, "surveySchema");
 
-const validatorPlaceholder = ajv.compile(placeholderSchema);
+const validatorPlaceholder = ajv.compile(surveySchema);
 
 const validate = (
-  validator: ValidateFunction<PlaceholderData>,
+  validator: ValidateFunction<ISurveySchema>,
   data: any
-): PlaceholderReturnType => {
+): IValidatorOutput => {
   const valid = validator(data);
   const errors = validator?.errors ?? [];
 
@@ -41,14 +31,6 @@ const validate = (
   }
 };
 
-export const validatePrompt = (data: any): PlaceholderReturnType => {
-  return validate(validatorPlaceholder, data);
-};
-
-export const validateSurvey = (data: any): PlaceholderReturnType => {
-  return validate(validatorPlaceholder, data);
-};
-
-export const validateInput = (data: any): PlaceholderReturnType => {
+export const validateSurvey = (data: any): IValidatorOutput => {
   return validate(validatorPlaceholder, data);
 };
