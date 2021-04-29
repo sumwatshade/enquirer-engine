@@ -1,6 +1,6 @@
 import { ErrorObject } from "ajv";
 
 export interface IValidatorOutput {
-  valid: boolean;
+  isValid: boolean;
   errors?: ErrorObject<string, Record<string, any>, unknown>[];
 }

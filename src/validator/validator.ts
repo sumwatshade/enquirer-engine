@@ -16,16 +16,16 @@ const validate = (
   validator: ValidateFunction<ISurveySchema>,
   data: any
 ): IValidatorOutput => {
-  const valid = validator(data);
+  const isValid = validator(data);
   const errors = validator?.errors ?? [];
 
-  if (valid) {
+  if (isValid) {
     return {
-      valid,
+      isValid,
     };
   } else {
     return {
-      valid,
+      isValid,
       errors,
     };
   }
