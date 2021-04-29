@@ -22,10 +22,10 @@ ajv.addSchema(placeholderSchema, "placholderSchema");
 
 const validatorPlaceholder = ajv.compile(placeholderSchema);
 
-function validate(
+const validate = (
   validator: ValidateFunction<PlaceholderData>,
   data: any
-): PlaceholderReturnType {
+): PlaceholderReturnType => {
   const valid = validator(data);
   const errors = validator?.errors ?? [];
 
@@ -39,16 +39,16 @@ function validate(
       errors,
     };
   }
-}
+};
 
-export function validatePrompt(data: any): PlaceholderReturnType {
+export const validatePrompt = (data: any): PlaceholderReturnType => {
   return validate(validatorPlaceholder, data);
-}
+};
 
-export function validateSurvey(data: any): PlaceholderReturnType {
+export const validateSurvey = (data: any): PlaceholderReturnType => {
   return validate(validatorPlaceholder, data);
-}
+};
 
-export function validateInput(data: any): PlaceholderReturnType {
+export const validateInput = (data: any): PlaceholderReturnType => {
   return validate(validatorPlaceholder, data);
-}
+};
