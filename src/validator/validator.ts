@@ -4,14 +4,18 @@ const ajv = new Ajv({ allErrors: true });
 
 const surveySchema: JSONSchemaType<ISurveySchema> = {
   type: "object",
+  properties: {
+    id: { type: "string" },
+    createdAt: { type: "string" },
+    prompts: { type: "array", items: { type: "object" } },
+  },
   required: ["id", "createdAt", "prompts"],
   additionalProperties: false,
 };
 
 ajv.addSchema(surveySchema, "surveySchema");
 
-const validatorPlaceholder = ajv.compile(surveySchema);
-
+const surveyValidator = ajv.compile(surveySchema);
 const validate = (
   validator: ValidateFunction<ISurveySchema>,
   data: any
@@ -19,18 +23,16 @@ const validate = (
   const isValid = validator(data);
   const errors = validator?.errors ?? [];
 
-  if (isValid) {
-    return {
-      isValid,
-    };
-  } else {
-    return {
-      isValid,
-      errors,
-    };
-  }
+  return isValid
+    ? {
+        isValid,
+      }
+    : {
+        isValid,
+        errors,
+      };
 };
 
 export const validateSurvey = (data: any): IValidatorOutput => {
-  return validate(validatorPlaceholder, data);
+  return validate(surveyValidator, data);
 };
