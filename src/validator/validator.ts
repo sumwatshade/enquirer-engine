@@ -15,6 +15,7 @@ const surveySchema: JSONSchemaType<ISurveySchema> = {
 
 ajv.addSchema(surveySchema, "surveySchema");
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const surveyValidator = ajv.compile(surveySchema);
 const validate = (
   validator: ValidateFunction<ISurveySchema>,
@@ -33,6 +34,8 @@ const validate = (
       };
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const validateSurvey = (data: any): IValidatorOutput => {
   return validate(surveyValidator, data);
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */
