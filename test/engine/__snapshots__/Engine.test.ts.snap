@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Engine Will default a user ID if none are provided 1`] = `
+Object {
+  "id": "my-test-schema",
+  "respondedAt": "2015-06-14T22:13:45.275Z",
+  "results": Array [
+    Object {
+      "choice": 2,
+      "id": "tacobell",
+    },
+    Object {
+      "choice": 1,
+      "id": "pizza",
+    },
+    Object {
+      "choice": 3,
+      "id": "inout",
+    },
+  ],
+  "userId": "hashValue",
+}
+`;
+
+exports[`Engine Will output CSV 1`] = `
+"# Survey ID: my-test-schema
+# Responded at: 2015-06-14T22:13:45.275Z
+# User: test-user
+promptId, result"
+`;
+
+exports[`Engine Will output JSON 1`] = `"{\\"id\\":\\"my-test-schema\\",\\"userId\\":\\"test-user\\",\\"respondedAt\\":\\"2015-06-14T22:13:45.275Z\\",\\"results\\":[]}"`;
+
+exports[`Engine Will run a scale-based survey 1`] = `
+Object {
+  "id": "my-test-schema",
+  "respondedAt": "2015-06-14T22:13:45.275Z",
+  "results": Array [
+    Object {
+      "choice": 2,
+      "id": "tacobell",
+    },
+    Object {
+      "choice": 1,
+      "id": "pizza",
+    },
+    Object {
+      "choice": 3,
+      "id": "inout",
+    },
+  ],
+  "userId": "test-user",
+}
+`;
+
+exports[`Engine will default to raw json if no output is provided 1`] = `
+Object {
+  "id": "my-test-schema",
+  "respondedAt": "2015-06-14T22:13:45.275Z",
+  "results": Array [
+    Object {
+      "choice": 2,
+      "id": "tacobell",
+    },
+    Object {
+      "choice": 1,
+      "id": "pizza",
+    },
+    Object {
+      "choice": 3,
+      "id": "inout",
+    },
+  ],
+  "userId": "test-user",
+}
+`;

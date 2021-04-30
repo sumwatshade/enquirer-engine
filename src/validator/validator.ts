@@ -7,7 +7,7 @@ const surveySchema: JSONSchemaType<ISurveySchema> = {
   properties: {
     id: { type: "string" },
     createdAt: { type: "string" },
-    prompts: { type: "array", items: { type: "object" } },
+    prompts: { type: "array", items: { type: "object", required: ["type", "name", "message", "scale"] } },
   },
   required: ["id", "createdAt", "prompts"],
   additionalProperties: false,
@@ -22,7 +22,7 @@ const validate = (
   data: any
 ): IValidatorOutput => {
   const isValid = validator(data);
-  const errors = validator?.errors ?? [];
+  const errors = validator.errors ?? [];
 
   return isValid
     ? {
