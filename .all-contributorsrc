@@ -21,6 +21,18 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "jonathanlee46",
+      "name": "Jonathan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10793208?v=4",
+      "profile": "https://github.com/jonathanlee46",
+      "contributions": [
+        "doc",
+        "infra",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
