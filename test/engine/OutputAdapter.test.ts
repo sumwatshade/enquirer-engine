@@ -8,7 +8,7 @@ describe("Output Adapter", () => {
         sampleOutput = {
             id: 'test-survey',
             userId: 'test-user',
-            respondedAt: new Date('2021-02-04'),
+            respondedAt: new Date('2021-02-04').toISOString(),
             results: [
                 {
                     id: 'q1',
@@ -53,7 +53,7 @@ describe("Output Adapter", () => {
         const output = await convertToOutput({ engineOutput: sampleOutput, format: 'csv'})
         expect(output).toStrictEqual(outdent`
         # Survey ID: test-survey
-        # Responded at: 1612396800000
+        # Responded at: 2021-02-04T00:00:00.000Z
         # User: test-user
         promptId, result
         q1, 3

@@ -1,2 +1,9 @@
-export * from "./validator/validator";
-export * from './engine/Engine'
+export * from "./validator";
+export * from './engine'
+export * from './types'
+
+import {EnquirerEngine} from './engine'
+
+export default EnquirerEngine;
+
+

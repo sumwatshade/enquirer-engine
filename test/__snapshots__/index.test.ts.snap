@@ -2,8 +2,11 @@
 
 exports[`index exports all exports should match snapshot 1`] = `
 Object {
+  "EnquirerEngine": [Function],
+  "convertToOutput": [Function],
+  "default": [Function],
   "validateSurvey": [Function],
 }
 `;
 
-exports[`index exports default export should match snapshot 1`] = `undefined`;
+exports[`index exports default export should match snapshot 1`] = `[Function]`;

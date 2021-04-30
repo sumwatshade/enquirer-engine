@@ -1,36 +1,32 @@
 import { prompt } from 'enquirer'
 import { convertToOutput } from './OutputAdapter'
 import { ISurveySchema } from 'src/types'
-import { SurveyPromptOutput, IEngineOutput } from 'src/types/IEngineOutput'
-
-interface IEngineOptions {
-  outputFormat: 'json' | 'csv' | 'json-raw' | undefined,
-}
+import { SurveyPromptOutput, IEngineOutput, IEngineOptions } from 'src/types'
+import * as uuid from 'uuid';
 
 export class EnquirerEngine {
   constructor(private readonly options: IEngineOptions) {}
 
-  async run(settingsJson: ISurveySchema):Promise<string | IEngineOutput> {
-    const { id, prompts } = settingsJson
-    const surveyResults:Array<SurveyPromptOutput> = prompts.forEach(async promptSettings => {
-      return await prompt(promptSettings)
+  async run(surveySettings: ISurveySchema): Promise<string | IEngineOutput> {
+    const { id, prompts } = surveySettings;
+    const surveyResults: Array<SurveyPromptOutput> = [];
+    
+    prompts.forEach(async promptSettings => {
+      const result: Record<string, number> = await prompt(promptSettings)
+      const parsedResults: SurveyPromptOutput[] = Object.keys(result).map(r => ({ id: r, choice: result[r]}))
+      surveyResults.push(...parsedResults)
     })
 
-    console.log('HERES THE GOODS: ', surveyResults)
-
-    // const engineOutput = await prompt(surveySettings: )
-    // engineOutput.id = surveyId
-    const engineOutput:IEngineOutput = {
+    const engineOutput: IEngineOutput = {
       id,
-      userId: 'sailor moon',
-      respondedAt: new Date(),
+      userId: this.options.userId || uuid.v4(),
+      respondedAt: new Date().toISOString(),
       results: surveyResults
     }
 
-    const format = this.options?.outputFormat
     return convertToOutput({
       engineOutput,
-      format
+      format: this.options.outputFormat
     })
   }
 }

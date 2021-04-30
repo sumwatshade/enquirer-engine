@@ -14,7 +14,7 @@ export const convertToOutput = async ({engineOutput, format}: IOutputAdapterProp
         // Add comments for survey metadata
         return [
             `# Survey ID: ${engineOutput.id}`,
-            `# Responded at: ${engineOutput.respondedAt.getTime()}`,
+            `# Responded at: ${engineOutput.respondedAt}`,
             `# User: ${engineOutput.userId}`,
             `promptId, result`
         ].concat(engineOutput.results.map(result => `${result.id}, ${result.choice}`)).join('\n');
