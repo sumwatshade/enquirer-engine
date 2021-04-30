@@ -1,4 +1,4 @@
-interface SurveyPromptOutput {
+export interface SurveyPromptOutput {
     id: string;
     choice: 1 | 2 | 3 | 4 | 5
 }
