@@ -7,15 +7,20 @@ import * as uuid from 'uuid';
 export class EnquirerEngine {
   constructor(private readonly options: IEngineOptions) {}
 
-  async run(surveySettings: ISurveySchema): Promise<string | IEngineOutput> {
+  async run(surveySettings: ISurveySchema): Promise<string | IEngineOutput | null> {
     const { id, prompts } = surveySettings;
     const surveyResults: Array<SurveyPromptOutput> = [];
     
-    prompts.forEach(async promptSettings => {
-      const result: Record<string, number> = await prompt(promptSettings)
+    for(const promptSetting of prompts) {
+      let result: Record<string, number>;
+      try {
+        result = await prompt(promptSetting)
+      } catch(e) {
+        return null;
+      }
       const parsedResults: SurveyPromptOutput[] = Object.keys(result).map(r => ({ id: r, choice: result[r]}))
       surveyResults.push(...parsedResults)
-    })
+    }
 
     const engineOutput: IEngineOutput = {
       id,

@@ -121,6 +121,17 @@ describe("Engine", () => {
         expect(result).toMatchSnapshot()
 
     });
+
+    it("will return a null value if prompt exits poorly", async () => {
+        mockEnquirer.prompt.mockRejectedValue(new Error('test'))
+        const engine = new EnquirerEngine(engineOptions);
+
+        const result = await engine.run(surveySchema)
+
+        expect(result).toBe(null)
+
+    })
+
     it("Will output CSV", async () => {
         engineOptions.outputFormat = "csv";
         
