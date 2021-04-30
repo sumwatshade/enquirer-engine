@@ -18,7 +18,7 @@ export class EnquirerEngine {
       } catch(e) {
         return null;
       }
-      const parsedResults: SurveyPromptOutput[] = Object.keys(result).map(r => ({ id: r, choice: result[r]}))
+      const parsedResults: SurveyPromptOutput[] = Object.keys(result).flatMap(r => Object.keys(result[r]).map(k => ({ id: k, choice: result[r][k] })))
       surveyResults.push(...parsedResults)
     }
 
