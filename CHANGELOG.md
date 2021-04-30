@@ -1,3 +1,17 @@
+# v0.2.0 (Fri Apr 30 2021)
+
+#### 🚀 Enhancement
+
+- feat: add wrapper Engine [#10](https://github.com/sumwatshade/enquirer-engine/pull/10) (jonathan_lee@intuit.com [@sumwatshade](https://github.com/sumwatshade) [@jonathanlee46](https://github.com/jonathanlee46))
+
+#### Authors: 3
+
+- Jonathan ([@jonathanlee46](https://github.com/jonathanlee46))
+- Jonathan Lee (jonathan_lee@intuit.com)
+- Lucas Shadler ([@sumwatshade](https://github.com/sumwatshade))
+
+---
+
 # v0.1.1 (Fri Apr 30 2021)
 
 #### 🐛 Bug Fix
