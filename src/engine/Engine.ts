@@ -1,7 +1,7 @@
 import { prompt } from 'enquirer'
 import { convertToOutput } from './OutputAdapter'
-import { ISurveySchema } from 'src/types'
-import { SurveyPromptOutput, IEngineOutput, IEngineOptions } from 'src/types'
+import { ISurveySchema } from '../types'
+import { SurveyPromptOutput, IEngineOutput, IEngineOptions } from '../types'
 import * as uuid from 'uuid';
 
 export class EnquirerEngine {
