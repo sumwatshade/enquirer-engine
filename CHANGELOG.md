@@ -1,3 +1,15 @@
+# v0.2.2 (Fri Apr 30 2021)
+
+#### 🐛 Bug Fix
+
+- fix: peer deps and stuff [#15](https://github.com/sumwatshade/enquirer-engine/pull/15) ([@sumwatshade](https://github.com/sumwatshade))
+
+#### Authors: 1
+
+- Lucas Shadler ([@sumwatshade](https://github.com/sumwatshade))
+
+---
+
 # v0.2.1 (Fri Apr 30 2021)
 
 #### 🐛 Bug Fix
