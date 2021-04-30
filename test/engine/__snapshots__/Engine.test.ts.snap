@@ -26,10 +26,13 @@ exports[`Engine Will output CSV 1`] = `
 "# Survey ID: my-test-schema
 # Responded at: 2015-06-14T22:13:45.275Z
 # User: test-user
-promptId, result"
+promptId, result
+tacobell, 2
+pizza, 1
+inout, 3"
 `;
 
-exports[`Engine Will output JSON 1`] = `"{\\"id\\":\\"my-test-schema\\",\\"userId\\":\\"test-user\\",\\"respondedAt\\":\\"2015-06-14T22:13:45.275Z\\",\\"results\\":[]}"`;
+exports[`Engine Will output JSON 1`] = `"{\\"id\\":\\"my-test-schema\\",\\"userId\\":\\"test-user\\",\\"respondedAt\\":\\"2015-06-14T22:13:45.275Z\\",\\"results\\":[{\\"id\\":\\"tacobell\\",\\"choice\\":2},{\\"id\\":\\"pizza\\",\\"choice\\":1},{\\"id\\":\\"inout\\",\\"choice\\":3}]}"`;
 
 exports[`Engine Will run a scale-based survey 1`] = `
 Object {
