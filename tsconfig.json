@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-
     "target": "es2018",
     "module": "CommonJS",
     "lib": ["es2018"],

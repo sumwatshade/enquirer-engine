@@ -1,8 +1,21 @@
 export interface IPromptSchema {
     type: "scale";
+    margin: [number, number, number, number];
     name: string;
     message: string;
-    [key: string]: any;
+    scale: IScaleSchema[];
+    choices: IChoicesSchema[];
+}
+
+export interface IScaleSchema {
+    name: string;
+    message: string;
+}
+
+export interface IChoicesSchema {
+    name: string;
+    message: string;
+    initial?: number;
 }
 
 export interface ISurveySchema {
