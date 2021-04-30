@@ -1,5 +1,5 @@
 import Ajv, { JSONSchemaType, ValidateFunction } from "ajv";
-import { ISurveySchema, IValidatorOutput } from "src/types";
+import { ISurveySchema, IValidatorOutput } from "../types";
 const ajv = new Ajv({ allErrors: true });
 
 const surveySchema: JSONSchemaType<ISurveySchema> = {
