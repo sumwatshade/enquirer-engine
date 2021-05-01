@@ -33,6 +33,18 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "Aghassi",
+      "name": "David",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3680126?v=4",
+      "profile": "https://aghassi.github.io/",
+      "contributions": [
+        "doc",
+        "infra",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
