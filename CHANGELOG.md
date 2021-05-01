@@ -1,3 +1,19 @@
+# v0.2.3 (Sat May 01 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, David ([@Aghassi](https://github.com/Aghassi)), for all your work!
+
+#### 🐛 Bug Fix
+
+- docs: link to enquirer [#18](https://github.com/sumwatshade/enquirer-engine/pull/18) ([@Aghassi](https://github.com/Aghassi))
+
+#### Authors: 1
+
+- David ([@Aghassi](https://github.com/Aghassi))
+
+---
+
 # v0.2.2 (Fri Apr 30 2021)
 
 #### 🐛 Bug Fix
