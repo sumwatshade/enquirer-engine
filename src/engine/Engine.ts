@@ -11,16 +11,16 @@ export class EnquirerEngine {
     const { id, prompts } = surveySettings;
     const surveyResults: Array<SurveyPromptOutput> = [];
     
-    for(const promptSetting of prompts) {
-      let result: Record<string, number>;
+      let result: Record<string, Record<string, number>>;
       try {
-        result = await prompt(promptSetting)
+        result = await prompt(prompts)
       } catch(e) {
         return null;
       }
-      const parsedResults: SurveyPromptOutput[] = Object.keys(result).flatMap(r => Object.keys(result[r]).map(k => ({ id: k, choice: result[r][k] })))
+      const parsedResults: SurveyPromptOutput[] = Object.values(result).reduce((acc: SurveyPromptOutput[], next: Record<string, number>) => {
+        return [...acc, ...Object.keys(next).map(id => ({id, choice: next[id]}))]
+      }, [])
       surveyResults.push(...parsedResults)
-    }
 
     const engineOutput: IEngineOutput = {
       id,

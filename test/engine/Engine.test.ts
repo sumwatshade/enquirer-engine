@@ -31,7 +31,7 @@ describe("Engine", () => {
             createdAt: new Date('2020-04-04').toDateString(),
             prompts: [{
                 type: 'scale',
-                name: "My prompt",
+                name: "my-prompt",
                 margin: [0, 1, 1, 2],
                 message: "This is my prompt",
                 scale: [
@@ -55,13 +55,46 @@ describe("Engine", () => {
                         "message": "Howie's Artisan Pizza"
                     }
                 ]
+            }, {
+                type: 'scale',
+                name: "my-prompt-2",
+                margin: [0, 1, 1, 2],
+                message: "This is my prompt",
+                scale: [
+                    { "name": "1", "message": "Super gross!" },
+                    { "name": "2", "message": "Kinda gross." },
+                    { "name": "3", "message": "This would be alright." },
+                    { "name": "4", "message": "Oh I want this." },
+                    { "name": "5", "message": "I NEEEED IT!" }
+                ],
+                choices: [
+                    {
+                        "name": "inout2",
+                        "message": "In N Out"
+                    },
+                    {
+                        "name": "tacobell2",
+                        "message": "Taco Bell"
+                    },
+                    {
+                        "name": "pizza2",
+                        "message": "Howie's Artisan Pizza"
+                    }
+                ]
             }]
         }
 
         mockEnquirer.prompt.mockResolvedValue({
-            tacobell: 2,
-            pizza: 1,
-            inout: 3
+            'my-prompt': {
+                tacobell: 2,
+                pizza: 1,
+                inout: 3
+            },
+            'my-prompt-2': {
+                tacobell2: 2,
+                pizza2: 1,
+                inout2: 3
+            }
         })
 
     });
@@ -80,6 +113,7 @@ describe("Engine", () => {
         expect(result.id).toBe(surveySchema.id)
         expect(result.userId).toBe(engineOptions.userId)
         expect(result).toMatchSnapshot()
+        expect(result.results.map(r => r.id)).toMatchObject(["tacobell", "pizza", "inout", "tacobell2", "pizza2", "inout2"])
 
     });
     it("Will default a user ID if none are provided", async () => {
