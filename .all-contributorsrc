@@ -45,6 +45,18 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "ArtemisD",
+      "name": "Diana",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22482583?v=4",
+      "profile": "https://github.com/ArtemisD",
+      "contributions": [
+        "doc",
+        "infra",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
