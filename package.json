@@ -1,6 +1,6 @@
 {
   "name": "@sumwatshade/enquirer-engine",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Use JSON schema to specify enquirer experiences",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
