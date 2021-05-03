@@ -1,3 +1,15 @@
+# v0.2.5 (Mon May 03 2021)
+
+#### 🐛 Bug Fix
+
+- fix: unfold results object [#16](https://github.com/sumwatshade/enquirer-engine/pull/16) ([@sumwatshade](https://github.com/sumwatshade))
+
+#### Authors: 1
+
+- Lucas Shadler ([@sumwatshade](https://github.com/sumwatshade))
+
+---
+
 # v0.2.4 (Mon May 03 2021)
 
 #### 🐛 Bug Fix
