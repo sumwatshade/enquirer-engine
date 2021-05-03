@@ -17,6 +17,7 @@ ajv.addSchema(surveySchema, "surveySchema");
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const surveyValidator = ajv.compile(surveySchema);
+// validate can be augmented to take in multiple schema types
 const validate = (
   validator: ValidateFunction<ISurveySchema>,
   data: any
