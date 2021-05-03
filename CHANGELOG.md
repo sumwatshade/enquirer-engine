@@ -1,3 +1,15 @@
+# v0.2.4 (Mon May 03 2021)
+
+#### 🐛 Bug Fix
+
+- fix: add comment to validate [#19](https://github.com/sumwatshade/enquirer-engine/pull/19) ([@ArtemisD](https://github.com/ArtemisD))
+
+#### Authors: 1
+
+- Diana ([@ArtemisD](https://github.com/ArtemisD))
+
+---
+
 # v0.2.3 (Sat May 01 2021)
 
 :tada: This release contains work from a new contributor! :tada:
